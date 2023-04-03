@@ -1,0 +1,52 @@
+Название tv-поля - migx_sites_url
+Тип ввода - migx
+
+Вкладки формы:
+
+[
+  {
+    "caption": "Заголовок",
+    "fields": [
+      {
+        "field": "site_name",
+        "caption": "Сайт",
+        "inputTVtype": "text"
+      },
+      {
+        "field": "site_url",
+        "caption": "Адрес",
+        "inputTVtype": "text"
+      },
+	  {
+        "field": "site_sended",
+        "caption": "Уведомлено",
+        "inputTVtype": "listbox",
+        "inputOptionValues": "Нет==0||Да==1",
+	    "default": "0"
+      },
+	  {
+        "field": "site_date",
+        "caption": "Дата блокировки",
+        "inputTVtype": "text"
+      }
+    ]
+  }
+]
+
+Разметка колонок:
+
+[{
+  "header": "Сайт",
+  "dataIndex": "site_name",
+  "sortable": "true"
+},{
+  "header": "Адрес",
+  "dataIndex": "site_url"
+},{
+  "header": "Дата блокировки",
+  "dataIndex": "site_date"
+},{
+  "header": "Уведомлено",
+  "dataIndex": "site_sended"
+}]
+

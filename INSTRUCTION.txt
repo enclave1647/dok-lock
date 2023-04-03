@@ -1,0 +1,37 @@
+В assets добавить папки img и js
+
+Создать tv-поле (migx_sites_url) - см. файл (CONFIG-TV-migx_sites_url.txt)
+
+Создать странцу и добавить для неё созданное migx-поле.
+
+Создать сниппет (checkSites_with_sort_AllBase) с кодом из файла snip--checkSites_with_sort_AllBase.php
+
+В новом сниппете указать id страницы с migx-полем:
+
+// Получаем ресурс с migx-полем сайтов
+$page = $modx->getObject('modResource', 1); // 1 - ID страницы 
+// Берем migx-поле
+$sites = $page->getTVValue('migx_sites_url'); // migx_sites_url - Название migx поля
+
+На созданной странице заполнить migx-поле с сайтами вручную или использовать backUp заполненного migx-поля - см файл (backUp-json-migx-data.txt)
+
+Добавить в поле *content созданной страницы созданный сниппет [[!checkSites_with_sort_AllBase]]
+
+Должно работать :)
+
+(i)Чтобы создать backUp нужно через php-консоль или новый сниппет загрузить backUp-данные в migx-поле ресурса.
+
+Примерно так:
+
+$JSON = 'JSON_ИЗ_ФАЙЛА_BACKUP';
+
+// Получаем ресурс с migx-полем сайтов
+$page = $modx->getObject('modResource', 1); // 1 - ID страницы 
+
+// Берем migx-поле
+$sites = $page->getTVValue('migx_sites_url'); // migx_sites_url - Название migx поля
+
+// Сохраняем в migx-поле
+    $page->setTVValue('migx_sites_url', $JSON);
+    $page->save();
+    $modx->cacheManager->clearCache();
